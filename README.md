@@ -1,4 +1,4 @@
-## Reward Your Teacher(API)
+## Catch-Back-Reward(API)
 An API that serves data to a JavaScript front-end.
 
 ### Tools
