@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  app:
+    container_name: teacher
+    image: reward_your_teacher
+    build: ./
+    ports:
+      - "9001:9001"
+    depends_on:
+      - postgresqldb
+  postgresqldb:
+    image: postgres
+    container_name: postgresqldb
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=rewardyourteacher_db
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5050:80"
+
+
+
+
+
+
